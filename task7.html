@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+    <div class="container">
+    <h1>Задача 7. Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+1.	за весь рік;
+2.	у першій половині року;
+3.	у другій половині року;
+4.	за літо;
+5.	за ІІ квартал;
+6.	за парні місяці (з парними номерами);
+7.	за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+
+    </h1>
+    <a href="./index.html">Повернутись до задач</a>
+     <script>
+       function getRandomNum(minValue, maxValue) {
+         return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+       }
+       
+       
+       
+       function getRandomArray(valuesNumber, minValue, maxValue) {
+         const arr = []
+         for (let i = 0; i < valuesNumber; i++) {
+           const randNum =
+             minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+           arr.push(randNum)
+         }
+         return arr
+       }
+       const paymentsList = getRandomArray(12, 1, 100)
+       console.log(paymentsList);
+       
+       function getPaymentsSum(paymentsList,minMonthIndex,maxMonthIndex){
+       let sum=0;
+       for(let month=minMonthIndex-1;month<maxMonthIndex;month++){
+        sum+= paymentsList[month]
+       }
+       return sum
+    }
+    function getEvenMonths(paymentsList) {
+    let sum = 0
+    for (let i = 1; i <= paymentsList.length; i++) {
+        if (i % 2 === 0) sum += paymentsList[i - 1]
+    }
+    return sum
+}
+ function getStartMonth(paymentsList) {
+    let sum=paymentsList[2] + paymentsList[5] + paymentsList[8] + paymentsList[11]
+    return sum
+
+ }
+const sumYear= getPaymentsSum(paymentsList,1,12)
+document.write(`Сумарна кількість грошей за рік становить:${sumYear}<br>`)
+
+const sumOfFirstHalfPastOfYear= getPaymentsSum(paymentsList,1,6)
+console.log(sumOfFirstHalfPastOfYear);
+
+document.write(`Сумарна кількість грошей за перше півріччя становить:${sumOfFirstHalfPastOfYear}<br>`)
+const sumOfSecondHalfPastOfYear= getPaymentsSum(paymentsList,7,12)
+
+document.write(`Сумарна кількість грошей за друге півріччя становить:${sumOfSecondHalfPastOfYear}<br>`)
+const sumOfSummer= getPaymentsSum(paymentsList,6,8)
+
+document.write(`Сумарна кількість грошей за літо становить:${sumOfSummer}<br>`)
+const sumOfSecondQuarter= getPaymentsSum(paymentsList,4,6)
+
+document.write(`Сумарна кількість грошей за другий квартал становить:${sumOfSecondQuarter}<br>`)
+const sumOfEven= getPaymentsSum(paymentsList,2,12)
+
+const evenMonths = getEvenMonths(paymentsList)
+document.write(`Сумарна кількість грошей за парні місяці становить:${evenMonths}<br>`)
+
+const startMonth=getStartMonth(paymentsList)
+document.write(`Сумарна кількість грошей за перші місяці кожного сезону становить:${startMonth}<br>`)
+        </script>
+       
+</body>
+</html>

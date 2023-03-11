@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+    <div class="container">
+    <h1>Задача 2. Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран:
+•	номери днів, протягом яких кількість відвідувачів була меншою за 20;
+•	номери днів, коли кількість відвідувачів була мінімальною;
+•	загальну кількість клієнтів у робочі дні та окремо загальну кількість клієнтів на вихідних.
+
+
+    </h1>
+    <a href="./index.html">Повернутись до задач</a>
+    
+        <script>
+     let value = 7
+   
+  function getValue(value){
+     let valueRandom=[]
+    for (let i=1; i <=value; i++){
+        let minRandom=0
+        let maxRandom=150
+        let random= minRandom+Math.floor(Math.random()*(maxRandom-minRandom))
+        random++
+        console.log(random);
+ valueRandom.push(random)
+ console.log(valueRandom);
+    }
+    return valueRandom
+  }
+  const arr= getValue(value)
+ 
+
+
+ function getCustomerLess20(arr){
+  let quantityOfDay=[]
+  for ( let i=0; i<arr.length;i++){
+    if(arr[i]<=20){
+    quantityOfDay.push(i+1)}
+    
+  }
+  return quantityOfDay
+ }
+const less20= getCustomerLess20(arr)
+document.write(`Номера днів коли відвідувачів було менше 20:'№${less20}'<br>`)
+
+
+
+ //мінімальна кількість клієнтів
+
+
+ function minCustomers(arr){
+  let minQuantity=[]
+  for (let i=0;i<arr.length;i++){
+    if (arr[i]===Math.min(...arr)){
+      minQuantity.push(i+1)
+    }
+  }
+  return minQuantity
+ }
+ const min= minCustomers(arr)
+ document.write(`Номера днів коли кількість відвідувачів була мінімальною ${min}<br>`)
+
+
+
+// максимальна кількість клієнтів
+function maxCustomers(arr){
+  let maxQuantity=[]
+  for (let i=0;i<arr.length;i++){
+    if (arr[i]===Math.max(...arr)){
+      maxQuantity.push(i+1)
+    }
+  }
+  return maxQuantity
+ }
+ const max= maxCustomers(arr)
+ document.write(`Номера днів, коли кількість відвідувачів була максимальною ${max}<br>`)
+
+
+
+  
+  function quantityOfCustomers(arr,startDayNumber,endDayNumber){
+    let sum=0
+   for (let day=startDayNumber;day<=endDayNumber;day++){
+
+  sum+=arr[0]
+      } 
+   return sum
+  }
+  const sumOfWorkDay = quantityOfCustomers(arr, 0, 4)
+const sumOfWeekendDay = quantityOfCustomers(arr,4,5)
+  document.write(`Кількість клієнтів у робочі дні ${sumOfWorkDay},у вихідні дні ${sumOfWeekendDay} `)
+</script>
+</body>
+</html>

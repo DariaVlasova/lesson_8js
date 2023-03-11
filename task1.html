@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+    <div class="container">
+    <h1>Задача 1. Дано масив, який містить оцінки з К предметів. 
+        Знайти середній бал і з’ясувати до якої категорії він відноситься 
+        (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно),
+        трійочник(є хоча би одна трійка)).
+    </h1>
+    <a href="./index.html">Повернутись до задач</a>
+ <script>
+  let value = parseInt(prompt('Введить кількість предметів'))
+   
+  function getValue(value){
+     let valueRandom=[]
+    for (let i=0; i <value; i++){
+        let minRandom=2
+        let maxRandom=5
+        let random= minRandom+Math.floor(Math.random()*(maxRandom-minRandom))
+        random++
+        console.log(random);
+ valueRandom.push(random)
+ console.log(valueRandom);
+    }
+    return valueRandom
+  }
+  let arr= getValue(value)
+
+  
+
+function studentValue(...arr){
+    const minMark = Math.min(...arr)
+     let studentScore
+ for (let index=0; index<=arr.length; index++){
+     if ((minMark)===5){
+  studentScore='Відмінник'
+  break
+ } else if (minMark ===4 ){
+studentScore='Хорошист'
+break}
+ else if(minMark===3){
+studentScore='Трійочник'
+break}
+else if(minMark===2){
+studentScore='Двійочник'}
+ }
+ return studentScore
+}
+const task= studentValue(...arr)
+console.log(task);
+document.write(task)
+       
+  
+         </script>
+     
+   
+</body>
+</html>

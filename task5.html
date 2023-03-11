@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+    <div class="container">
+    <h1> Задача 5. Дано послідовність оцінок учня. Підрахувати кількість:
+1)	двійок
+2)	кількість хороших оцінок (добре, відмінно);
+3)	кількість оцінок, які нижче середнього.
+
+
+</h1>
+    <a href="./index.html">Повернутись до задач</a>
+      <script>
+        let arr=[2,3,4,5,4,3,4,5,5,5,4,3,2,5]
+
+        //	двійок
+        function getDeuce(arr){
+          let counter=0
+          for (let i=0;i<arr.length;i++){
+            if(arr[i]===2)
+            counter++
+          }
+return counter
+        }
+        let deuce= getDeuce(arr)
+        document.write(`Кількість двійок дорівнює ${deuce}<br>`)
+        //кількість хороших оцінок (добре, відмінно);
+         function getGoodMarks(arr){
+          let counter=0
+          for (let i=0;i<arr.length;i++){
+            if(arr[i]===4|| arr[i]===5)
+            counter++
+          }
+return counter
+        }
+        let goodMarks= getGoodMarks(arr)
+        document.write(`Кількість хороших відміток дорівнює ${goodMarks}<br>`)
+        //кількість оцінок, які нижче середнього.
+ function getBadMarks(arr){
+          let counter=0
+          for (let i=0;i<arr.length;i++){
+            if(arr[i]===3|| arr[i]===2)
+            counter++
+          }
+return counter
+        }
+        let badMarks= getBadMarks(arr)
+        document.write(`Кількість поганих відміток дорівнює ${badMarks}<br>`)
+    </script>
+ 
+ </body>
+</html>

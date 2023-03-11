@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        Задача 9. Морський бій. Користувач вводить кількість клітинок
+        одновимірного масиву та кількість одиночних кораблів. Комп’ютер довільно
+        розміщує ці одиночні кораблі у масиві по один у клітинці (якщо у
+        клітинці 0, то клітинка пуста, якщо 1 – то це означає, що там є
+        корабель. Користувач вводить номер клітинки, куди стріляє. Гра
+        продовжується до тих пір, поки не будуть потоплені усі кораблі.
+      </h1>
+      <a href="./index.html">Повернутись до задач</a>
+      <script>
+        let userShip = parseInt(
+          prompt("Введить будь ласка, кількість  одиночних кораблів")
+        );
+        let userCells = parseInt(
+          prompt("Введить будь ласка,кількість клитинок одновимірного масиву")
+        );
+
+        function getFieldPlay(userNumCells, userNumShip) {
+          let field = [];
+          for (let i = 0; i < userNumCells; i++) {
+            field.push(0);
+          }
+          for (let i = 0; i < userNumShip; i++) {
+            const numRandom = Math.floor(Math.random() * userNumCells);
+            if (field[numRandom] !== 1) field[numRandom] = 1;
+            else i--;
+          }
+          return field;
+        }
+        let gameField = getFieldPlay(userCells, userShip);
+        console.log(gameField);
+
+        for (let i = 0; userShip > 0; ) {
+          const userStrikePosition = parseInt(prompt(`Куди стріляємо ?`));
+          if (gameField[userStrikePosition - 1] === 1) {
+            userShip--;
+            alert("Попали!");
+          } else alert("Промазав!");
+        }
+      </script>
+    </div>
+  </body>
+</html>

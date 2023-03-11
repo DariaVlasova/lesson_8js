@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+    <div class="container">
+     <h1>Задача 4. Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+•	починаються на букву «А»;
+•	перша і остання літери співпадають;
+•	складаються з більше ніш 5 символів;
+
+</h1>
+    <a href="./index.html">Повернутись до задач</a>
+      <script>
+    let arr=['ТВ0001АА','АК2015СЕ','СН0001АА','АК8608КА']
+//    починаються на букву «А»;
+    function getQuantityOfA(arr){
+        let counter=0
+        for( let i=0;i<arr.length;i++){
+            if(arr[i][0]==='А')
+            counter++
+        }
+return counter
+    }
+       let name=getQuantityOfA(arr)
+       document.write(`Кількість номерів що починається з А: ${name}<br>`) 
+
+
+// перша і остання літери співпадають;
+        function getCoincidence(arr){
+        let counter=0
+        for( let i=0;i<arr.length;i++){
+            if(arr[i][0]===arr[i][arr[i].length-1])
+            counter++
+        }
+return counter
+    }
+       let coincidence=getCoincidence(arr)
+       document.write(`Кількість номерів  у якіх співпадає перша і остання літера: ${coincidence}<br>`) 
+
+
+   //  складаються з більше ніш 5 символів;
+    function getGreaterThan5(arr){
+        let counter=0
+        for( let i=0;i<arr.length;i++){
+            if(arr[i][5])
+            counter++
+        }
+return counter
+    }
+       let greaterMore5=getGreaterThan5(arr)
+       document.write(`Кількість номерів  що складаються більше ніж з 5 знаків: ${greaterMore5}<br>`) 
+       
+       
+    </script>
+      
+</body>
+</html>
